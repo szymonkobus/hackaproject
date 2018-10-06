@@ -13,6 +13,37 @@ var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 
+//mongoose.connect("mongodb+srv://admin:admin123@cluster0-tyvbl.gcp.mongodb.net/test",{ useNewUrlParser: true});
+mongoose.connect("mongodb+srv://admin:admin123@cluster0-tyvbl.gcp.mongodb.net/test",{ useNewUrlParser: true}, function(err, client) {
+   // perform actions on the collection object
+   if(err) {
+     console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
+   }
+   console.log('Connected...');
+   const collection = db.collection("inventory");
+
+   // perform actions on the collection object
+   db.collection('inventory').insertMany([
+   // MongoDB adds the _id field with an ObjectId if _id is not present
+   { item: "journal", qty: 25, status: "A",
+       size: { h: 14, w: 21, uom: "cm" }, tags: [ "blank", "red" ] },
+   { item: "notebook", qty: 50, status: "A",
+       size: { h: 8.5, w: 11, uom: "in" }, tags: [ "red", "blank" ] },
+   { item: "paper", qty: 100, status: "D",
+       size: { h: 8.5, w: 11, uom: "in" }, tags: [ "red", "blank", "plain" ] },
+   { item: "planner", qty: 75, status: "D",
+       size: { h: 22.85, w: 30, uom: "cm" }, tags: [ "blank", "red" ] },
+   { item: "postcard", qty: 45, status: "A",
+       size: { h: 10, w: 15.25, uom: "cm" }, tags: [ "blue" ] }
+  ])
+  .then(function(result) {
+  // process result
+  })
+
+   console.log(mongoose.connection.readyState);
+   client.close();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

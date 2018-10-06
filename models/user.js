@@ -15,17 +15,13 @@ mongoose.connect("mongodb+srv://admin:admin123@cluster0-tyvbl.gcp.mongodb.net/te
    console.log('Connected...');
 });
 
-//adduser("Tom","123");
+//adduser("Eva","kk2");
 
 //querring
-User.find({name: "Mike"}).exec(function(err, docs){
+User.find({}).exec(function(err, docs){
   if(err) throw err;
-  console.log();
   console.log(docs);
 });
-
-
-//client.close();
 
 function adduser(_name, _password){
   var temp_user = new User({name: _name, pass: _password});

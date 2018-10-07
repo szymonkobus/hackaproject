@@ -8,8 +8,9 @@ var db         = mongoose.connection;
 var userSchema = mongoose.Schema({
   // TODO: Allow login with Facebook/etc.
   local      : {
-    username : String,
-    password : String
+    username : { type: String,
+                 unique: true  },
+    password : { type : String }
   }
 });
 
@@ -64,10 +65,10 @@ userSchema.methods.generateHash = function(password) {
 
 /**
  * Check if password valid.
- *
+ *                            //q should you hash password?
  * @param {String} password
  */
-userSchema.method.validPassword = function(password) {
+userSchema.method.validPassword = (password) => {
   return bcrypt.compareSync(password, this.local.password);
 };
 
@@ -77,9 +78,28 @@ userSchema.method.validPassword = function(password) {
  * @param {Object | String | Number} id
  * @param {Function}                 callback
  */
+
+ /*
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 };
+*/
+
+/**
+ * Retrieves user from database using user ID to identify them.
+ *
+ * @param {Object | String | Number} id
+ * @param {Function}                 callback
+ */
+
+ /*
+userSchema.method.getUserByName = (_name, callback) => {
+  User.find({username : _name}, (err, user) => {
+    if(err) callback(err, null);
+    else callback(null, users[0]);
+    });
+  };
+*/
 
 function adduser(_name, _password) {
   var temp_user = new User({local : {username : _name, password : _password}});

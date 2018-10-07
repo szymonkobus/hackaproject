@@ -53,27 +53,26 @@ passport.use('local-signup', new LocalStrategy({
   usernameField : 'username',
   passwordField : 'password',
   },
-  function(username, password, done) {
-    // TODO: Query DB here to check if user already exists. If so, throw error.
-    //       Else create the user:
-    var newUser = new User();
-
-    newUser.local.username = password;
-    newUser.local.password = newUser.generateHash(password);
-
-    // TODO: Write new user to database.
-    /*
-    newUser.save(function(err) {
-      if (err) {
-        console.log("Error creating new user " + newUser.local.username + ".");
-        done(null, false);
-      } else {
-        console.log("New user " + newUser.local.username + " successfully created.");
-        done(null, newUser);
-      }
-    });
-    */
-    done(null, newUser);
+  (_username, _password, done) => {
+    User.findOne({'local.username': _username}, (err, db_user) =>{
+      if(err) return done(err);
+      if(db_user){
+        console.log("Name already taken");
+        return done(null, false);
+      }else{
+        var newUser = new User()
+        newUser.local.username = _username;
+        newUser.local.password = newUser.generateHash(_password);
+        newUser.save( err => {
+          if(err){
+              console.log("error: user not saved");
+              return done(err, null);
+              //TODO: how to do it such that it doesnt go thorough uppon an error
+          }else{
+            console.log("New user " + newUser.local.username);
+            return done(null, newUser);
+        }});
+      }})
   }));
 
 /**
@@ -89,13 +88,40 @@ passport.use('local-login', new LocalStrategy({
   usernameField : 'username',
   passwordField : 'password',
   },
-  // TODO: Query DB here to authenticate
-  function(username, password, done) {
-    var user = {
-      username : username,
-      password : password
-    };
-
+  (_username, _password, done) => {
+    User.findOne({'local.username': _username}, (err, db_user) =>{
+      console.log(db_user);
+      if(err) return done(err);
+      if(!db_user){
+        console.log("User not in database.");
+        return done(null, false);
+      }
+      /*
+      if(!db_user.validPassword(_password)){
+        console.log("Wrong password.")
+        return done(null, false);
+      }
+      */
+      return done(null, db_user);
+    })
+    /*
+    User.getUserByName(_username, (err, db_user) => {
+      if(err){
+        console.log("Error: user not retrieved")
+        return done(null, false);
+      }
+      else{
+        if(db_user.validPassword(_password)){
+          console.log("Successful login for user " + user.username + ".");
+          return done(null, db_user);
+        } else {
+          console.log("Unsuccessful login for user " + user.username + ".")
+          return done(null, false);
+        }
+      }
+    })
+    */
+    /*
     if (user.username === 'foo' && user.password === 'bar') {
       console.log("Successful login for user " + user.username + ".");
       done(null, user);
@@ -103,5 +129,6 @@ passport.use('local-login', new LocalStrategy({
       console.log("Unsuccessful login for user " + user.username + ".")
       done(null, false);
     }
+    */
   }));
 };

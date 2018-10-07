@@ -14,6 +14,8 @@ var userSchema = mongoose.Schema({
   }
 });
 
+var User = mongoose.model('user', userSchema);
+
 console.log("User model created.");
 
 /*
@@ -23,7 +25,6 @@ mongoose.connect(require('./config/database.js'),{ useNewUrlParser: true}, funct
      console.log('Error occurred while connecting to MongoDB Atlas...\n',err);
    }
 
-   console.log('Connected...');
    const collection = db.collection("users");
 
    // Perform actions on the collection object
@@ -35,10 +36,16 @@ mongoose.connect(require('./config/database.js'),{ useNewUrlParser: true}, funct
   .then(function(result) {
   // Process result
   })
-
-   client.close();
 });
 */
+
+//adduser("Eva","kk2");
+
+//querring
+User.find({}).exec(function(err, docs){
+  if(err) throw err;
+  console.log(docs);
+});
 
 // ========
 // METHODS
@@ -71,5 +78,12 @@ userSchema.method.validPassword = function(password) {
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
 };
+
+function adduser(_name, _password) {
+  var temp_user = new User({local : {username : _name, password : _password}});
+  temp_user.save(function(err){
+    if(err) console.log("error: user not saved")
+  });
+}
 
 module.exports = mongoose.model('User', userSchema);

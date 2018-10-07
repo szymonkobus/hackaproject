@@ -1,9 +1,17 @@
+/**
+ * Defines app route/logic for index page(s).
+ */
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Solved.' });
+/**
+ * Handles GET request for home page.
+ *
+ * @param {Object} req
+ * @param {Object} re
+ */
+router.get('/', function(req, res) {
+  res.render('index', { title : 'Solved.' });
 });
 
 module.exports = router;

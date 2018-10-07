@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  h2.page-header Login
-  form(method='post', action='/users/login')
+  h2.page-header Register as a new user.
+  form(method='post', action='/users/register')
     .form-group
      label User name
      input.form-control(name='username', type='text', required placeholder='Enter user name')
     .form-group
      label Password
      input.form-control(name='password', type='password', required placeholder='Enter password')
-    input.btn.btn-primary(type= 'submit', name='submit', value ='Login')
+    input.btn.btn-primary(type= 'submit', name='submit', value ='Sign me up!')

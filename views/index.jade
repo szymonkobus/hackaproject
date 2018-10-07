@@ -1,6 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  a.nav-link(href='/users/login') Test
+  div.jumbotron.text-center
+    h1
+      span.fa.fa-lock
+      |  #{title}
+    p Welcome to #{title}
+    a.btn.btn-outline-info(href='/users/login')
+      span.fa.fa-user
+      |  Local Login
+    | #{'    '}
+    a.btn.btn-outline-info(href='/users/register')
+      span.fa.fa-user
+      |  Register

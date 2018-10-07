@@ -1,12 +1,21 @@
 extends layout
 
 block content
-  h2.page-header Register as a new user.
-  form(method='post', action='/users/register')
-    .form-group
-     label User name
-     input.form-control(name='username', type='text', required placeholder='Enter user name')
-    .form-group
-     label Password
-     input.form-control(name='password', type='password', required placeholder='Enter password')
-    input.btn.btn-primary(type= 'submit', name='submit', value ='Sign me up!')
+  div.col-sm-6.col-sm-offset-3
+    h1
+      span.fa.fa-sign-in-alt
+      |  Login
+    form(action='/users/register', method='post')
+      div.form-group
+        label User name
+        input.form-control(name='username', type='text', required placeholder='Enter user name')
+      div.form-group
+        label Password
+        input.form-control(name='password', type='password', required placeholder='Enter password')
+      button.btn.btn-info.btn-lg(type='submit') Sign me up!
+    hr
+
+    p Already have an account? #{' '}
+      a(href='/users/login') Login.
+    p Or go #{' '}
+      a(href='/') Home.

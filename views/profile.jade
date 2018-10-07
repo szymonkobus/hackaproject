@@ -1,6 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{user}'s profile!
-  a.nav-link(href='/users/login') Test
+  div.page-header.text-center
+    h1
+      span.fa.fa-anchor
+      |  Welcome to #{user}'s profile!
+    a.btn.btn-info.btn-sm(href='/users/logout') Logout
+
+  div.row
+    div.col-sm-6
+      h3
+        span.fa.fa-user
+        |  Local
+      p
+        strong Username: #{user}

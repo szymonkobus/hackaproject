@@ -9,7 +9,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // Load User model
 var User          = require('../models/user');
-
+console.log(User);
 /**
  * Serializes user for the session.
  *
@@ -87,8 +87,9 @@ passport.use('local-signup', new LocalStrategy({
 passport.use('local-login', new LocalStrategy({
   usernameField : 'username',
   passwordField : 'password',
+  passReqToCallback : true
   },
-  (_username, _password, done) => {
+  (req, _username, _password, done) => {
     User.findOne({'local.username': _username}, (err, db_user) =>{
       console.log(db_user);
       if(err) return done(err);
@@ -96,12 +97,12 @@ passport.use('local-login', new LocalStrategy({
         console.log("User not in database.");
         return done(null, false);
       }
-      /*
-      if(!db_user.validPassword(_password)){
+
+      if(!db_user.validPassword(_password, db_user)){
         console.log("Wrong password.")
         return done(null, false);
       }
-      */
+
       return done(null, db_user);
     })
     /*

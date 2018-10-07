@@ -17,7 +17,7 @@ var LocalStrategy = require('passport-local').Strategy;
 require('./config/passport')(passport);
 
 // Create session for passport
-app.use(session({ secret : 'secret', cookie: { maxAge : 1000*60*60*24 } }));
+app.use(session({ secret : 'BNfoPKiVQKnQBVXtEbGy', cookie: { maxAge : 1000*60*60*24 } }));
 app.use(passport.initialize());
 app.use(passport.session()); // Persistent login sessions
 app.use(flash());            // Flash messages stored in session

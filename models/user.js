@@ -1,6 +1,5 @@
-/**
- * Handles database interaction for users.
- */
+
+//Handles database interaction for users.
 var mongoose   = require('mongoose');
 var bcrypt     = require('bcryptjs');
 
@@ -16,8 +15,11 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('user', userSchema);
 
-console.log("User model created.");
+var dbSetings = require('../config/database');
 
+mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, function(err, client){
+  if(err) console.log('Error: Can\'t connect to database: ',err);
+})
 /*
 mongoose.connect(require('./config/database.js'),{ useNewUrlParser: true}, function(err, client) {
    // Perform actions on the collection object
@@ -81,7 +83,7 @@ module.exports.getUserById = function(id, callback) {
 
 function adduser(_name, _password) {
   var temp_user = new User({local : {username : _name, password : _password}});
-  temp_user.save(function(err){
+  temp_user.save( err => {
     if(err) console.log("error: user not saved")
   });
 }

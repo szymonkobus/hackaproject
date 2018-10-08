@@ -34,7 +34,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.post('/login', passport.authenticate('local-login', {
-    failureRedirect : '/users/login',                           //I just realod the page, we should add some warnng
+    failureRedirect : '/users/login',                           // reloaded the page, TODO: add warning of what happened
     failureFlash    : 'Invalid username or password'
   }),
   function(req, res) {
@@ -61,7 +61,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.post('/register', passport.authenticate('local-signup', {
-    failureRedirect : '/users/register',                                //the same stuff as for login
+    failureRedirect : '/users/register',                                //reload upon failure
     failureFlash    : 'Username already taken. Try again.'
   }),
   function(req, res) {

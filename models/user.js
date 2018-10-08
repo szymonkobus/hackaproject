@@ -19,14 +19,6 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
   if(err) console.log('Error: Can\'t connect to database: ',err);
 })
 
-/*
-User.find({}).exec(function(err, docs){
-  if(err) throw err;
-  console.log(docs);
-});
-*/
-
-
 /**
  * Retrieves user from database using user ID to identify them.
  *

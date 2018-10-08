@@ -34,7 +34,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.post('/login', passport.authenticate('local-login', {
-    failureRedirect : '/users/login_failed',
+    failureRedirect : '/users/login',
     failureFlash    : 'Invalid username or password'
   }),
   function(req, res) {

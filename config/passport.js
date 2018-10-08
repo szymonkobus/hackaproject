@@ -9,7 +9,6 @@ var LocalStrategy = require('passport-local').Strategy;
 
 // Load User model
 var User          = require('../models/user');
-console.log(User);
 /**
  * Serializes user for the session.
  *

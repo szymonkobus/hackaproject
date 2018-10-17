@@ -68,7 +68,6 @@ module.exports = function(app, passport) {
     console.log('Registration successful!');
     req.flash('success', 'You are now signed up.');
     res.redirect('/users/profile/' + req.user.local.username);
-    // TODO: Username not stored properly to display profile.
     console.log(res.urlencoded);
   });
 
@@ -82,7 +81,8 @@ module.exports = function(app, passport) {
    */
   router.get(/\/profile\/.*/, function(req, res) {
     var user_queried = req.url.replace('/profile/', "");
-    User.getUserProfile(user_queried, function(err, result) {
+    var user = new User();
+    user.getUserProfile(user_queried, function(err, result) {
       if (err) {
         console.log('ERROR: An error occurred retrieving user info from database.');
       } else {

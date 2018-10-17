@@ -42,8 +42,6 @@ passport.deserializeUser(function(user, done) {
 /**
  * Custom local strategy for signup.
  *
- * TODO: Place credentials into MongoDB after encrypting password.
- *
  * @param {String}   username
  * @param {String}   password
  * @param {Function} done
@@ -53,13 +51,13 @@ passport.use('local-signup', new LocalStrategy({
   passwordField : 'password',
   },
   (_username, _password, done) => {
-    User.model.findOne({'local.username': _username}, (err, db_user) =>{
+    User.findOne({'local.username': _username}, (err, db_user) =>{
       if(err) return done(err);
       if(db_user){
         console.log("Name already taken");
         return done(null, false);
       }else{
-        var newUser = new User()
+        var newUser = new User();
         newUser.local.username = _username;
         newUser.local.password = newUser.generateHash(_password);
         newUser.save( err => {
@@ -77,8 +75,6 @@ passport.use('local-signup', new LocalStrategy({
 /**
  * Custom local strategy for login.
  *
- * TODO: Verify login using MongoDB
- *
  * @param {String}   username
  * @param {String}   password
  * @param {Function} done
@@ -89,7 +85,7 @@ passport.use('local-login', new LocalStrategy({
   passReqToCallback : true
   },
   (req, _username, _password, done) => {
-    User.model.findOne({'local.username': _username}, (err, db_user) =>{
+    User.findOne({'local.username': _username}, (err, db_user) =>{
       console.log(db_user);
       if(err) return done(err);
       if(!db_user){
@@ -104,31 +100,5 @@ passport.use('local-login', new LocalStrategy({
 
       return done(null, db_user);
     })
-    /*
-    User.getUserByName(_username, (err, db_user) => {
-      if(err){
-        console.log("Error: user not retrieved")
-        return done(null, false);
-      }
-      else{
-        if(db_user.validPassword(_password)){
-          console.log("Successful login for user " + user.username + ".");
-          return done(null, db_user);
-        } else {
-          console.log("Unsuccessful login for user " + user.username + ".")
-          return done(null, false);
-        }
-      }
-    })
-    */
-    /*
-    if (user.username === 'foo' && user.password === 'bar') {
-      console.log("Successful login for user " + user.username + ".");
-      done(null, user);
-    } else {
-      console.log("Unsuccessful login for user " + user.username + ".")
-      done(null, false);
-    }
-    */
   }));
 };

@@ -12,11 +12,6 @@ block content
        =post.text
        p
 
-       .button-right
-         a.more(href='/posts/show/#{post._id}') Show details
-         form.form-check-inline(action='/cart/#{post.id}', method='post')
-           input.buy(type= 'submit', name='submit', value ='Add To Cart')
-
   h1 Post a reply
   if logged_in
     form(name="input", action="/topic/"+url, method="post")

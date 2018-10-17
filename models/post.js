@@ -28,12 +28,14 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
  * @param {Number}   id
  * @param {Function} callback
  */
-module.exports.getPostByDiscussionId = function(id, callback) {
-  Post.find({ 'discussion_id' : id }, callback);
-};
-
 // ========
 // METHODS
 // ========
 
-module.exports.model = mongoose.model('Post', postSchema);
+postSchema.methods.getPostByDiscussionId = function(id, callback) {
+  // Temporarily modified for testing purposes
+  Post.find({}, callback);
+  //Post.find({ 'discussion_id' : id}, callback);
+};
+
+module.exports = mongoose.model('Post', postSchema);

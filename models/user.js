@@ -19,26 +19,6 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
   if(err) console.log('Error: Can\'t connect to database: ',err);
 })
 
-/**
- * Retrieves user from database using user ID to identify them.
- *
- * @param {Object | String | Number} id
- * @param {Function}                 callback
- */
-module.exports.getUserById = function(id, callback) {
-  User.findById(id, callback);
-};
-
-/**
- * Retrieves user profile from database using username to identify them.
- *
- * @param {Object | String | Number} id
- * @param {Function}                 callback
- */
-module.exports.getUserProfile = function(username, callback) {
-  User.findOne({ 'local.username' : username }, callback);
-};
-
 // ========
 // METHODS
 // ========
@@ -59,4 +39,24 @@ userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 
-module.exports.model = mongoose.model('User', userSchema);
+/**
+ * Retrieves user from database using user ID to identify them.
+ *
+ * @param {Object | String | Number} id
+ * @param {Function}                 callback
+ */
+userSchema.methods.getUserById = function(id, callback) {
+  User.findById(id, callback);
+};
+
+/**
+ * Retrieves user profile from database using username to identify them.
+ *
+ * @param {Object | String | Number} id
+ * @param {Function}                 callback
+ */
+userSchema.methods.getUserProfile = function(username, callback) {
+  User.findOne({ 'local.username' : username }, callback);
+};
+
+module.exports = mongoose.model('User', userSchema);

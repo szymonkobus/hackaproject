@@ -13,7 +13,8 @@ var Posts = require('../models/post');
  */
 router.get(/.*/, function(req, res) {
   var discussion_id = 1;
-  Posts.getPostByDiscussionId(discussion_id, function(err, result) {
+  var post = new Posts();
+  post.getPostByDiscussionId(discussion_id, function(err, result) {
     if (err) {
       console.log("ERROR: Error occurred while retrieving posts.");
     } else {

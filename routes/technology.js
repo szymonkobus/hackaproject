@@ -4,6 +4,7 @@
 var express = require('express');
 var router  = express.Router();
 
+var Technology = require('../models/technology.js');
 /**
  * Handles GET request for technology home page.
  *
@@ -11,7 +12,20 @@ var router  = express.Router();
  * @param {Object} res
  */
 router.get(/.*/, function(req, res) {
-  res.render('technology', { title : req.url.replace("/", "")});
+  var technology = new Technology();
+  technology.getTechByName("", function(err, result) {
+    if (err) {
+      console.log('ERROR: An error occurred retrieving user info from database.');
+    } else {
+      console.log("RESULT: " + result);
+      if (result == null) {
+        console.log('No matching technology profile with that username found.');
+        res.redirect('/');
+      } else {
+        res.render('technology', { title : 'Technology', tech_data : result });
+      }
+    }
+  });
 });
 
 module.exports = router;

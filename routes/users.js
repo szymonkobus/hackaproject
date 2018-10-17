@@ -40,7 +40,7 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Authentication successful!');
     req.flash('success', 'You are now logged in.');
-    res.redirect('/users/profile');
+    res.redirect('/users/profile/' + req.user.local.username);
     console.log(res.urlencoded);
   });
 
@@ -51,7 +51,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.get('/register', function(req, res) {
-    res.render('register', {title : 'Register'});
+    res.render('register', { title : 'Register' });
   });
 
   /**
@@ -67,23 +67,35 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Registration successful!');
     req.flash('success', 'You are now signed up.');
-    res.redirect('/users/profile');
+    res.redirect('/users/profile/' + req.user.local.username);
     // TODO: Username not stored properly to display profile.
     console.log(res.urlencoded);
   });
 
   /**
-   * Handles GET request for user profile.
+   * Handles GET request for any user profile.
    *
-   * Can only be called when logged in - enforced using isLoggedIn middleware
-   * function.
+   * Looks user info up in database, then passes to renderer to create.
    *
    * @param {Object} req
    * @param {Object} res
    */
-  router.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile', {user : req.user.username});
-    console.log("Logged in user: " + req.user.username);
+  router.get(/\/profile\/.*/, function(req, res) {
+    var user_queried = req.url.replace('/profile/', "");
+    User.getUserProfile(user_queried, function(err, result) {
+      if (err) {
+        console.log('ERROR: An error occurred retrieving user info from database.');
+      } else {
+        console.log(result);
+        if (result == null) {
+          console.log('No matching user profile with that username found.');
+          res.redirect('/');
+        } else {
+          res.render('profile', { user_data : result });
+        }
+      }
+    });
+    console.log("User " + req.user.local.username + " requested page of : " + user_queried);
   });
 
   /**

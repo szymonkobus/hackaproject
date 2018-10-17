@@ -25,9 +25,18 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
  * @param {Object | String | Number} id
  * @param {Function}                 callback
  */
-
 module.exports.getUserById = function(id, callback) {
   User.findById(id, callback);
+};
+
+/**
+ * Retrieves user profile from database using username to identify them.
+ *
+ * @param {Object | String | Number} id
+ * @param {Function}                 callback
+ */
+module.exports.getUserProfile = function(username, callback) {
+  User.findOne({ 'local.username' : username }, callback);
 };
 
 // ========
@@ -50,4 +59,4 @@ userSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports.model = mongoose.model('User', userSchema);

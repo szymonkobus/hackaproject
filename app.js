@@ -36,10 +36,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Create routers
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users')(app, passport);
+var technologiesRouter = require('./routes/technology');
+var discussionsRouter = require('./routes/discussion');
 
 // Use routers
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/technology', technologiesRouter);
+app.use('/discussion', discussionsRouter);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {

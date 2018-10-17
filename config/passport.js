@@ -53,7 +53,7 @@ passport.use('local-signup', new LocalStrategy({
   passwordField : 'password',
   },
   (_username, _password, done) => {
-    User.findOne({'local.username': _username}, (err, db_user) =>{
+    User.model.findOne({'local.username': _username}, (err, db_user) =>{
       if(err) return done(err);
       if(db_user){
         console.log("Name already taken");
@@ -89,7 +89,7 @@ passport.use('local-login', new LocalStrategy({
   passReqToCallback : true
   },
   (req, _username, _password, done) => {
-    User.findOne({'local.username': _username}, (err, db_user) =>{
+    User.model.findOne({'local.username': _username}, (err, db_user) =>{
       console.log(db_user);
       if(err) return done(err);
       if(!db_user){

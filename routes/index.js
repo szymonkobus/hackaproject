@@ -8,7 +8,7 @@ var router  = express.Router();
  * Handles GET request for home page.
  *
  * @param {Object} req
- * @param {Object} re
+ * @param {Object} res
  */
 router.get('/', function(req, res) {
   res.render('index', { title : 'Solved.' });

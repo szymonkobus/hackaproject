@@ -1,0 +1,384 @@
+
+| group1 = [[Agriculture]]
+| list1  =
+* [[Agricultural robot]]
+* [[Closed ecological system]]s
+* [[Cultured meat]]
+* [[Genetically modified food]]
+* [[Precision agriculture]]
+* [[Vertical farming]]
+
+| group2 = [[Architecture]]
+| list2  =
+* [[Arcology]]
+* [[Construction 3D printing|Building printing]]
+** [[Contour crafting]]
+* [[Domed city]]
+
+| group3 = [[Biomedical technology|Biomedical]]
+| list3  =
+* [[Artificial uterus]]
+* [[Ampakine]]
+* [[Brain transplant]]
+* [[Cryonics]]
+** [[Cryoprotectant]]
+** [[Cryopreservation]]
+** [[Vitrification]]
+** [[Suspended animation]]
+* [[De-extinction]]
+* [[Genetic engineering]]
+** [[Gene therapy]]
+* [[Head transplant]]
+* [[Isolated brain]]
+* [[Life extension]]
+** [[Strategies for Engineered Negligible Senescence]]
+* [[Nanomedicine]]
+* [[Nanosensor]]s
+* [[Personalized medicine]]
+* [[Regenerative medicine]]
+** [[Stem-cell therapy]]
+** [[Tissue engineering]]
+* [[Robot-assisted surgery]]
+* [[Synthetic biology]]
+** [[Synthetic genomics]]
+* [[Virotherapy]]
+** [[Oncolytic virus]]
+* [[Medical tricorder|Tricorder]]
+* [[Whole genome sequencing]]
+
+| group4 = Displays
+| list4  = {{Navbox|child
+| groupwidth =
+| groupstyle = text-align: center;
+  | group1 = [[Next generation of display technology|Next generation]]
+  | list1  =
+* [[Field-emission display|FED]]
+* [[Ferroelectric liquid crystal display|FLCD]]
+* [[Interferometric modulator display|iMoD]]
+* [[Laser video display|Laser]]
+* [[Laser-powered phosphor display|LPD]]
+* [[OLED]]
+* [[Organic light-emitting transistor|OLET]]
+* [[Quantum dot display|QD-LED]]
+* [[Surface-conduction electron-emitter display|SED]]
+* [[Telescopic pixel display|TPD]]
+* [[Thick-film dielectric electroluminescent technology|TDEL]]
+* [[Time-multiplexed optical shutter|TMOS]]
+
+  | group2 = [[Screenless]]
+  | list2 =
+* [[Bionic contact lens]]
+* [[Head-mounted display]]
+* [[Head-up display]]
+* [[Optical head-mounted display]]
+* [[Virtual retinal display]]
+
+  | group3 = Other
+  | list3 =
+* [[Autostereoscopy]]
+* [[Flexible display]]
+* [[Holographic display]]
+** [[Computer-generated holography]]
+* [[Multi-primary color display]]
+* [[Ultra-high-definition television|Ultra HD]]
+* [[Volumetric display]]
+
+}}
+
+| group5 = Electronics
+| list5  =
+* [[Electronic nose]]
+* [[E-textiles]]
+* [[Flexible electronics]]
+* [[Molecular electronics]]
+* [[Nanoelectromechanical systems]]
+* [[Memristor]]
+* [[Spintronics]]
+* [[Thermal copper pillar bump]]
+
+| group6 = Energy
+| list6  = {{Navbox|child
+| groupwidth =
+| groupstyle = text-align: center;
+  | group1 = Production
+  | list1  =
+* [[Airborne wind turbine]]
+* [[Artificial photosynthesis]]
+* [[Biofuel]]s
+* [[Carbon-neutral fuel]]
+* [[Concentrated solar power]]
+* [[Fusion power]]
+* [[Home fuel cell]]
+* [[Hydrogen economy]]
+* [[Methanol economy]]
+* [[Molten salt reactor]]
+* [[Optical rectenna|Nantenna]]
+* [[Photovoltaic pavement]]
+* [[Space-based solar power]]
+* [[Vortex engine]]
+
+  | group2 = Storage
+  | list2 =
+* [[Lithium iron phosphate battery|Beltway battery]]
+* [[Compressed air energy storage]]
+* [[Flywheel energy storage]]
+* [[Grid energy storage]]
+* [[Lithium–air battery]]
+* [[Molten-salt battery]]
+* [[Nanowire battery]]
+* [[Research in lithium-ion batteries]]
+* [[Silicon–air battery]]
+* [[Thermal energy storage]]
+* [[Electric double-layer capacitor|Ultracapacitor]]
+
+  | group3 = Other
+  | list3 =
+* [[Smart grid]]
+* [[Wireless power transfer|Wireless power]]
+
+}}
+
+| group7 = {{longitem|[[Information and communications technology|Information and<br/>communications]]}}
+| list7  =
+* [[Ambient intelligence]]
+** [[Internet of things]]
+* [[Artificial intelligence]]
+** [[Applications of artificial intelligence]]
+** [[Progress in artificial intelligence]]
+** [[Machine translation]]
+** [[Mobile translation]]
+** [[Machine vision]]
+** [[Semantic Web]]
+** [[Speech recognition]]
+* [[Atomtronics]]
+* [[Carbon nanotube field-effect transistor]]
+* [[Cybermethodology]]
+* [[Optical_disc#Fourth-generation|Fourth-generation optical discs]]
+** [[3D optical data storage]]
+** [[Holographic data storage]]
+* [[General-purpose computing on graphics processing units|GPGPU]]
+* Memory
+** [[Programmable metallization cell|CBRAM]]
+** [[Ferroelectric RAM|FRAM]]
+** [[Millipede memory|Millipede]]
+** [[Magnetoresistive random-access memory|MRAM]]
+** [[Nano-RAM|NRAM]]
+** [[Phase-change memory|PRAM]]
+** [[Racetrack memory]]
+** [[Resistive random-access memory|RRAM]]
+** [[SONOS]]
+* [[Optical computing]]
+* [[Radio-frequency identification|RFID]]
+** [[Chipless RFID]]
+* [[Software-defined radio]]
+* [[Three-dimensional integrated circuit]]
+
+| group8 = Manufacturing
+| list8  =
+* [[3D printing]]
+* [[Claytronics]]
+* [[Molecular assembler]]
+* [[Utility fog]]
+
+| group9 = [[Materials science]]
+| list9  =
+* [[Aerogel]]
+* [[Amorphous metal]]
+* [[Artificial muscle]]
+* [[Conductive polymer]]
+* [[Femtotechnology]]
+* [[Fullerene]]
+* [[Graphene]]
+* [[High-temperature superconductivity]]
+* [[Superfluidity|High-temperature superfluidity]]
+* [[Linear acetylenic carbon]]
+* [[Metamaterial]]s
+** [[Metamaterial cloaking]]
+* [[Metal foam]]
+* [[Multi-function structure]]s
+* [[Nanotechnology]]
+** [[Carbon nanotube]]s
+** [[Molecular nanotechnology]]
+** [[Nanomaterials]]
+* [[Picotechnology]]
+* [[Programmable matter]]
+* [[Quantum dot]]s
+* [[Silicene]]
+* [[Superalloy]]
+* [[Synthetic diamond]]
+
+| group10 = [[Military technology|Military]]
+| list10  =
+* [[Antimatter weapon]]
+* [[Caseless ammunition]]
+* [[Directed-energy weapon]]
+** [[Laser]]
+** [[Maser]]
+** [[Particle-beam weapon]]
+** [[Sonic weapon]]
+** [[Coilgun]]
+** [[Railgun]]
+* [[Plasma weapon]]
+* [[Pure fusion weapon]]
+* [[Stealth technology]]
+* [[Vortex ring gun]]
+
+| group11 = [[Neuroscience]]
+| list11  =
+* [[Artificial brain]]
+* [[Brain–computer interface]]
+* [[Electroencephalography]]
+* [[Mind uploading]]
+** [[Brain-reading]]
+** [[Neuroinformatics]]
+* [[Neuroprosthetics]]
+** [[Visual prosthesis|Bionic eye]]
+** [[Brain implant]]
+** [[Exocortex]]
+** [[Retinal implant]]
+
+| group12 = [[Quantum technology|Quantum]]
+| list12  =
+* [[Quantum algorithm]]s
+* [[Quantum amplifier]]
+* [[Quantum bus]]
+* [[Quantum channel]]
+* [[Quantum circuit]]
+* [[Quantum complexity theory]]
+* [[Quantum computing]]
+* [[Quantum cryptography]]
+* [[Quantum dynamics]]
+* [[Quantum electronics]]
+* [[Quantum error correction]]
+* [[Quantum imaging]]
+* [[Quantum information]]
+* [[Quantum key distribution]]
+* [[Quantum logic]]
+* [[Quantum gate|Quantum logic gates]]
+* [[Quantum machine]]
+* [[Quantum machine learning]]
+* [[Quantum metamaterial]]
+* [[Quantum metrology]]
+* [[Quantum network]]
+* [[Quantum neural network]]
+* [[Quantum optics]]
+* [[Quantum programming]]
+* [[Quantum sensor|Quantum sensing]]
+* [[Quantum simulator]]
+* [[Quantum teleportation]]
+
+| group13 = [[Robotics]]
+| list13  =
+* [[Home automation|Domotics]]
+* [[Nanorobotics]]
+* [[Powered exoskeleton]]
+* [[Self-reconfiguring modular robot]]
+* [[Swarm robotics]]
+* [[Uncrewed vehicle]]
+
+| group14 = [[Outline of space science|Space science]]
+| list14  = {{Navbox|child
+| groupwidth =
+| groupstyle = text-align: center;
+  | group1 = [[Space launch|Launch]]
+  | list1  =
+* [[Fusion rocket]]
+* [[Non-rocket spacelaunch]]
+** [[Mass driver]]
+** [[Orbital ring]]
+** [[Skyhook (structure)|Skyhook]]
+** [[Space elevator]]
+** [[Space fountain]]
+** [[Space tether]]
+* [[Reusable launch system]]
+
+  | group2 = [[Spacecraft propulsion|Propulsion]]
+  | list2 =
+* [[Beam-powered propulsion]]
+* [[Ion thruster]]
+* [[Laser propulsion]]
+* [[Plasma propulsion engine]]
+** [[Helicon double-layer thruster|Helicon thruster]]
+** [[Variable Specific Impulse Magnetoplasma Rocket|VASIMR]]
+* [[Nuclear pulse propulsion]]
+* [[Solar sail]]
+
+  | group3 = Other
+  | list3 =
+* [[Interstellar travel]]
+* [[Propellant depot]]
+* [[Laser communication in space]]
+
+}}
+
+| group15 = [[Outline of transport|Transport]]
+| list15  = {{Navbox|child
+| groupwidth =
+| groupstyle = text-align: center;
+  | group1 = [[Aviation|Aerial]]
+  | list1  =
+* [[Adaptive compliant wing]]
+* [[Backpack helicopter]]
+* [[Delivery drone]]
+* [[Flying car (aircraft)|Flying car]]
+* [[High-altitude platform station|High-altitude platform]]
+* [[Jet pack]]
+* [[Pulse detonation engine]]
+* [[Scramjet]]
+* [[Spaceplane]]
+* [[Supersonic transport]]
+
+  | group2 = [[Land transport|Land]]
+  | list2 =
+* [[Airless tire]]
+* [[Alternative fuel vehicle]]
+** [[Hydrogen vehicle]]
+* [[Autonomous car|Driverless car]]
+* [[Ground effect train]]
+* [[Maglev|Maglev train]]
+* [[Personal rapid transit]]
+* [[Transit Elevated Bus|Transit Elevated Bus]]
+* [[Vactrain]]
+* [[Vehicular communication systems]]
+
+  | group3 = [[Pipeline transport|Pipeline]]
+  | list3 =
+* [[Pneumatic tube|Pneumatic transport]]
+** [[Automated vacuum collection]]
+}}
+
+| group16 = Other
+| list16  =
+* [[Anti-gravity]]
+* [[Cloak of invisibility]]
+* [[Digital scent technology]]
+* [[Force field (fiction)|Force field]]
+** [[Plasma window]]
+* [[Immersion (virtual reality)|Immersive virtual reality]]
+* [[Magnetic refrigeration]]
+* [[Phased-array optics]]
+}}
+| group2 = Topics
+| list2  =
+* [[Collingridge dilemma]]
+* [[Differential technological development]]
+* [[Disruptive Innovation]]
+* [[Ephemeralization]]
+* [[Exploratory engineering]]
+* [[Fictional technology]]
+* [[Proactionary principle]]
+* [[Technological change]]
+** [[Technological unemployment]]
+* [[Technological convergence]]
+* [[Technological evolution]]
+* [[Technological paradigm]]
+* [[Technology forecasting]]
+** [[Accelerating change]]
+** [[Moore's law]]
+** [[Technological singularity]]
+** [[Technology scouting]]
+* [[Technology readiness level]]
+* [[Technology roadmap]]
+* [[Transhumanism]]
+| below =
+}}

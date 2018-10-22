@@ -1,7 +1,6 @@
 extends layout
 
 block elements
-  h1 Discussion
   if posts
    each post, i in posts
      .post
@@ -14,9 +13,20 @@ block elements
 
   h1 Post a reply
   if logged_in
-    form(name="input", action="/topic/"+url, method="post")
-
-    !{form}
-    input(type="submit", value="Post Reply")
+    form#myForm.form-area(action='/discussion', method='post')
+      .col-lg-6.form-group.content-csers
+        label Title
+          input.common-input.mb-20.form-control(name='title', type='tile', required placeholder='Enter your post title', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your post title'")
+        br
+        label Post Content
+        .mt-10
+          textarea.single-textarea(name='text', type='text', placeholder='Write your post here...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Write yoru post here...'")
+        button.primary-btn.mt-20(type='submit')
+          | Post Reply
+          span.lnr.lnr-arrow-right
+        .alert-msg
+//    form(name="input", action="/topic/"+url, method="post")
+//    !{form}
+//    input(type="submit", value="Post Reply")
   else
     p You need to login to post a reply.

@@ -12,10 +12,10 @@ block elements
     form#myForm.form-area(action='/users/login', method='post')
       .col-lg-6.form-group.content-csers
         label User name
-          input.common-input.mb-20.form-control(name='username', type='text', requiredplaceholder='Enter your username', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your name'")
+          input.common-input.mb-20.form-control(name='username', type='text', requiredplaceholder='Enter your username', onfocus="this.placeholder = ''", onblur="this.placeholder='Enter your username'")
         br
         label Password
-          input.common-input.mb-20.form-control(name='password', type='password', required placeholder='Enter your password', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your password'")
+          input.common-input.mb-20.form-control(name='password', type='password', required placeholder='Enter password', onfocus="this.placeholder = ''", onblur="this.placeholder='Enter your password'")
         button.primary-btn.mt-20(type='submit')
           | Login
           span.lnr.lnr-arrow-right

@@ -38,4 +38,9 @@ postSchema.methods.getPostByDiscussionId = function(id, callback) {
   //Post.find({ 'discussion_id' : id}, callback);
 };
 
+postSchema.methods.addNewPost = function(title, content, author, callback) {
+  // Pass callback as next function after post added.
+  callback(null, null);
+}
+
 module.exports = mongoose.model('Post', postSchema);

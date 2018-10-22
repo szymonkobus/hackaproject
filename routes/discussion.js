@@ -4,7 +4,7 @@
 var express = require('express');
 var router  = express.Router();
 
-var Posts = require('../models/post');
+var Post = require('../models/post');
 /**
  * Handles GET request for discussion home page.
  *
@@ -13,7 +13,7 @@ var Posts = require('../models/post');
  */
 router.get(/.*/, function(req, res) {
   var discussion_id = 1;
-  var post = new Posts();
+  var post = new Post();
   post.getPostByDiscussionId(discussion_id, function(err, result) {
     if (err) {
       console.log("ERROR: Error occurred while retrieving posts.");
@@ -23,15 +23,11 @@ router.get(/.*/, function(req, res) {
   });
 });
 
-/**
- * Handles GET request for discussion home page.
- *
- * @param {Object} req
- * @param {Object} res
- */
-
-router.post('/discussion', function(req, res) {
-  res.send('respond with a resource');
-});
+router.post(/.*/, function(req, res) {
+  var newPost = new Post();
+  newPost.addNewPost(req.body.title, req.body.text, req.user.local.username, function(err, result) {
+    res.redirect('/discussion');
+  });
+})
 
 module.exports = router;

@@ -18,7 +18,7 @@ router.get(/.*/, function(req, res) {
     if (err) {
       console.log("ERROR: Error occurred while retrieving posts.");
     } else {
-      res.render('discussion', { title : 'Discussion' , logged_in : req.isAuthenticated(), posts : result});
+      res.render('discussion', { title : 'Discussion Forums' , description : 'Connect with fellow users, share knowledge and start a discussion today.' , logged_in : req.isAuthenticated(), posts : result});
     }
   });
 });

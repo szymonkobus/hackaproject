@@ -1,21 +1,22 @@
 extends layout
 
-block content
-  div.col-sm-6.col-sm-offset-3
-    h1
-      span.fa.fa-sign-in-alt
-      |  Register
-    form(action='/users/register', method='post')
-      div.form-group
+block elements
+  section#contact-area.section-small-border
+  .container
+    .row.d-flex.justify-content-center
+      .menu-content.pb-60.col-lg-8
+        .title.text-center
+          h1.mb-10 Please enter your user details.
+          | Already have an account? #{' '}
+          a(href='/users/login') Login.
+    form#myForm.form-area(action='/users/register', method='post')
+      .col-lg-6.form-group.content-csers
         label User name
-        input.form-control(name='username', type='text', required placeholder='Enter user name')
-      div.form-group
+          input.common-input.mb-20.form-control(name='username', type='text', requiredplaceholder='Enter your username', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your name'")
+        br
         label Password
-        input.form-control(name='password', type='password', required placeholder='Enter password')
-      button.btn.btn-info.btn-lg(type='submit') Sign me up!
-    hr
-
-    p Already have an account? #{' '}
-      a(href='/users/login') Login.
-    p Or go #{' '}
-      a(href='/') Home.
+          input.common-input.mb-20.form-control(name='password', type='password', required placeholder='Enter your password', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your password'")
+        button.primary-btn.mt-20(type='submit')
+          | Sign me up!
+          span.lnr.lnr-arrow-right
+        .alert-msg

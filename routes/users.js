@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.get('/login', function(req, res) {
-    res.render('login', {title : 'Login'});
+    res.render('login', {title : 'Login', description : 'Login to your account.', logged_in : req.isAuthenticated() });
   });
 
   /**
@@ -51,7 +51,7 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.get('/register', function(req, res) {
-    res.render('register', { title : 'Register' });
+    res.render('register', { title : 'Register', description : "Register for an account with us! We're excited to have you here.", logged_in : req.isAuthenticated() });
   });
 
   /**
@@ -91,11 +91,10 @@ module.exports = function(app, passport) {
           console.log('No matching user profile with that username found.');
           res.redirect('/');
         } else {
-          res.render('profile', { user_data : result });
+          res.render('profile', {  title : user_queried + "'s profile", description : 'Feel free to look around.', logged_in : req.isAuthenticated(), user_data : result });
         }
       }
     });
-    console.log("User " + req.user.local.username + " requested page of : " + user_queried);
   });
 
   /**

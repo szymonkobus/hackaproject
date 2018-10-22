@@ -1,15 +1,89 @@
 extends layout
 
 block content
-  div.jumbotron.text-center
-    h1
-      span.fa.fa-lock
-      |  #{title}
-    p Welcome to #{title}
-    a.btn.btn-outline-info(href='/users/login')
-      span.fa.fa-user
-      |  Local Login
-    | #{'    '}
-    a.btn.btn-outline-info(href='/users/register')
-      span.fa.fa-user
-      |  Register
+  // start banner Area
+  section#home.banner-area
+    // Start Header Area
+    header.default-header
+      nav.navbar.navbar-expand-lg.navbar-light
+        .container
+          a.navbar-brand(href='index.html')
+            img(src='/images/logo.png', alt='')
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.text-white.lnr.lnr-menu
+          #navbarSupportedContent.collapse.navbar-collapse.justify-content-end.align-items-center
+            ul.navbar-nav
+              li
+                a(href='#home') Home
+              li
+                a(href='technology') Explore Technologies
+              li
+                a(href='discussion') Community
+              li
+                a(href='about') About
+              if logged_in
+                li
+                  a(href='/users/profile/#{username}') My Profile
+                li
+                  a(href='/users/logout') Logout
+              else
+                li
+                  a(href='/users/login') Login
+                li
+                  a(href='/users/register') Register
+      // TODO: Stats for Solved.
+      //
+        <div class="align-items-center">
+        <div class="counter-left col-lg-3 col-md-3">
+        <div class="single-facts">
+        Technologies Covered: <span class="counter">5962</span>
+        </div>
+        <div class="single-facts">
+        Users: <span class="counter">2394</span>
+        </div>
+        <div class="single-facts">
+        Discussions: <span class="counter">1439</span>
+        </div>
+        </div>
+        </div>
+    // End Header Area
+  section.default-banner.active-blog-slider
+    .item-slider.relative(style='background: url(/images/slider1.jpg);background-size: cover;')
+      .overlay(style='background: rgba(0,0,0,.3)')
+      .container
+        .row.fullscreen.justify-content-center.align-items-center
+          .col-md-10.col-12
+            .banner-content.text-center
+              h4.text-white.mb-20.text-uppercase Need a solution?
+              h1.text-uppercase.text-white Solved.
+              p.text-white
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp
+                br
+                | or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+              a.text-uppercase.header-btn(href='register.html') Register
+    .item-slider.relative(style='background: url(/images/slider2.jpg);background-size: cover;')
+      .overlay(style='background: rgba(0,0,0,.3)')
+      .container
+        .row.fullscreen.justify-content-center.align-items-center
+          .col-md-10.col-12
+            .banner-content.text-center
+              h4.text-white.mb-20.text-uppercase Discover New Technologies &
+              h1.text-uppercase.text-white Explore
+              p.text-white
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp
+                br
+                | or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+              a.text-uppercase.header-btn(href='technology.html') Start Learning
+    .item-slider.relative(style='background: url(/images/slider3.jpg);background-size: cover;')
+      .overlay(style='background: rgba(0,0,0,.3)')
+      .container
+        .row.fullscreen.justify-content-center.align-items-center
+          .col-md-10.col-12
+            .banner-content.text-center
+              h4.text-white.mb-20.text-uppercase Connect With Communities &
+              h1.text-uppercase.text-white Nurture Ideas
+              p.text-white
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp
+                br
+                | or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+              a.text-uppercase.header-btn(href='discussion.html') Share Knowledge

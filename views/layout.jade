@@ -1,12 +1,43 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet' href='/stylesheets/style.css')
-    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
-    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css' integrity='sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU' crossorigin='anonymous')
-    style.
-      body { padding-top:80px; }
-  body
-    div.container
-      block content
+extends wrapper
+
+block content
+  // Start banner Area
+  section.generic-banner.relative
+    // Start Header Area
+    header.default-header
+      nav.navbar.navbar-expand-lg.navbar-light
+        .container
+          a.navbar-brand(href='index.html')
+            img(src='/images/logo.png', alt='')
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.text-white.lnr.lnr-menu
+          #navbarSupportedContent.collapse.navbar-collapse.justify-content-end.align-items-center
+            ul.navbar-nav
+              li
+                a(href='/') Home
+              li
+                a(href='/technology') Explore Technologies
+              li
+                a(href='/discussion') Community
+              li
+                a(href='/about') About
+              if logged_in
+                li
+                  a(href='/users/profile/#{username}') My Profile
+                li
+                  a(href='/users/logout') Logout
+              else
+                li
+                  a(href='/users/login') Login
+                li
+                  a(href='/users/register') Register
+    // End Header Area
+    .container
+      .row.height.align-items-center.justify-content-center
+        .col-lg-10
+          .generic-banner-content
+            h2.text-white #{title}
+            p.text-white #{description}
+  // End banner Area
+
+  block elements

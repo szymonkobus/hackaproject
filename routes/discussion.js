@@ -23,4 +23,15 @@ router.get(/.*/, function(req, res) {
   });
 });
 
+/**
+ * Handles GET request for discussion home page.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
+
+router.post('/discussion', function(req, res) {
+  res.send('respond with a resource');
+});
+
 module.exports = router;

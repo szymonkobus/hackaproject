@@ -358,27 +358,3 @@
 * [[Magnetic refrigeration]]
 * [[Phased-array optics]]
 }}
-| group2 = Topics
-| list2  =
-* [[Collingridge dilemma]]
-* [[Differential technological development]]
-* [[Disruptive Innovation]]
-* [[Ephemeralization]]
-* [[Exploratory engineering]]
-* [[Fictional technology]]
-* [[Proactionary principle]]
-* [[Technological change]]
-** [[Technological unemployment]]
-* [[Technological convergence]]
-* [[Technological evolution]]
-* [[Technological paradigm]]
-* [[Technology forecasting]]
-** [[Accelerating change]]
-** [[Moore's law]]
-** [[Technological singularity]]
-** [[Technology scouting]]
-* [[Technology readiness level]]
-* [[Technology roadmap]]
-* [[Transhumanism]]
-| below =
-}}

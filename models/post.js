@@ -22,8 +22,7 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
 })
 
 /**
- * Retrieves user from database using user ID to identify them before
- * performing callback function on result.
+ * Retrieves posts from database using discussion ID
  *
  * @param {Number}   id
  * @param {Function} callback
@@ -32,15 +31,27 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
 // METHODS
 // ========
 
-postSchema.methods.getPostByDiscussionId = function(id, callback) {
+postSchema.methods.getPostsByDiscussionId = function(discussion_id, callback) {
   // Temporarily modified for testing purposes
-  Post.find({}, callback);
-  //Post.find({ 'discussion_id' : id}, callback);
+  if(discussion_id == null){ Post.find({}, callback); }
+  else{ Post.find({ 'discussion_id' : discussion_id }, callback); }
 };
 
-postSchema.methods.addNewPost = function(title, content, author, callback) {
-  // Pass callback as next function after post added.
-  callback(null, null);
+postSchema.methods.addNewPost = function(title, content, author, discussion_id, callback) {
+  // Pass callback as next function after post added. // S: dont get it
+  this.discussion_id = discussion_id;
+  this.author = author;
+  this.upvotes = 0;
+  this.downvotes = 0;
+  this.title = title;
+  this.text = content;
+
+  this.save((err) => {
+    if(err){
+      console.log("ERROR: Couldn't save the post.");
+    }
+    callback(null, null);
+  })
 }
 
 module.exports = mongoose.model('Post', postSchema);

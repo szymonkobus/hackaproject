@@ -24,8 +24,8 @@
   postSchema.methods.getDiscussionByID = (id, callback) => {
     // Temporarily modified for testing purposes
     Discussion.find({}, callback);
-    //Post.find({ 'discussion_id' : id}, callback);
+    //Discussion.find({ 'discussion_id' : id}, callback);
   };
   */
 
-  odule.exports = mongoose.model('Discussion', discussionSchema);
+  module.exports = mongoose.model('Discussion', discussionSchema);

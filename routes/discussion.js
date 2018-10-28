@@ -12,9 +12,14 @@ var Post = require('../models/post');
  * @param {Object} res
  */
 router.get(/.*/, function(req, res) {
-  var discussion_id = 1;
+  console.log("g url: " + req.url);
+  var discussion_id = req.url.replace('/', '');
+  if(discussion_id == ''){
+    discussion_id = 0;
+  }
+  console.log("g discussion_id: " + discussion_id);
   var post = new Post();
-  post.getPostByDiscussionId(discussion_id, function(err, result) {
+  post.getPostsByDiscussionId(discussion_id, function(err, result) {
     if (err) {
       console.log("ERROR: Error occurred while retrieving posts.");
     } else {
@@ -24,9 +29,18 @@ router.get(/.*/, function(req, res) {
 });
 
 router.post(/.*/, function(req, res) {
+  console.log("p url: " + req.url);
+  var discussion_id = req.url.replace('/', '');
+  if(discussion_id == ''){
+    discussion_id = 0;
+  }
+  console.log("p discussion_id: " + discussion_id);
   var newPost = new Post();
-  newPost.addNewPost(req.body.title, req.body.text, req.user.local.username, function(err, result) {
-    res.redirect('/discussion');
+  newPost.addNewPost(req.body.title, req.body.text, req.user.local.username, discussion_id, function(err, result) {
+    if(err){
+      console.log("ERROR: Couldn't save the post.")
+    }
+    res.redirect('/discussion/' + discussion_id);
   });
 })
 

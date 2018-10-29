@@ -4,13 +4,30 @@
 var express = require('express');
 var router  = express.Router();
 
-var Post = require('../models/post');
+var Discussion = require('../models/discussion');
+var Post       = require('../models/post');
+
 /**
  * Handles GET request for discussion home page.
  *
  * @param {Object} req
  * @param {Object} res
  */
+router.get('/', function(req, res) {
+  var discussion = new Discussion();
+  discussion.getAllDiscussions(function(err, result) {
+    if (err) {
+      console.log("ERROR: Error occurred while retrieving discussions.");
+    } else {
+      res.render('discussionhome', { title       : 'Discussion Forums',
+      description : 'Connect with fellow users, share knowledge and start a discussion today.',
+      logged_in   : req.isAuthenticated(),
+      user        : req.user,
+      discussions : result});
+    }
+  });
+});
+
 router.get(/.*/, function(req, res) {
   console.log("g url: " + req.url);
   var discussion_id = req.url.replace('/', '');
@@ -23,12 +40,17 @@ router.get(/.*/, function(req, res) {
     if (err) {
       console.log("ERROR: Error occurred while retrieving posts.");
     } else {
-      res.render('discussion', { title : 'Discussion Forums' , description : 'Connect with fellow users, share knowledge and start a discussion today.' , logged_in : req.isAuthenticated(), posts : result});
+      res.render('discussion', { title        : 'Discussion Forums',
+                                 description  : 'Connect with fellow users, share knowledge and start a discussion today.',
+                                 logged_in    : req.isAuthenticated(),
+                                 user         : req.user,
+                                 discussionid : discussion_id,
+                                 posts        : result});
     }
   });
 });
 
-router.post(/.*/, function(req, res) {
+router.post(/\/.*/, function(req, res) {
   console.log("p url: " + req.url);
   var discussion_id = req.url.replace('/', '');
   if(discussion_id == ''){

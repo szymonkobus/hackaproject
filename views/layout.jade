@@ -7,7 +7,7 @@ block content
     header.default-header
       nav.navbar.navbar-expand-lg.navbar-light
         .container
-          a.navbar-brand(href='index.html')
+          a.navbar-brand(href='/')
             img(src='/images/logo.png', alt='')
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
             span.text-white.lnr.lnr-menu
@@ -23,7 +23,7 @@ block content
                 a(href='/about') About
               if logged_in
                 li
-                  a(href='/users/profile/#{username}') My Profile
+                  a(href='/users/profile/#{user.local.username}') My Profile
                 li
                   a(href='/users/logout') Logout
               else
@@ -40,4 +40,6 @@ block content
             p.text-white #{description}
   // End banner Area
 
-  block elements
+  section#contact-area.section-small-border
+  .container
+    block elements

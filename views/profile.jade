@@ -2,10 +2,10 @@ extends layout
 
 block elements
   div.page-header.text-center
-    h1
-      span.fa.fa-anchor
-      |  Welcome to #{user_data.local.username}'s profile!
-    a.btn.btn-info.btn-sm(href='/users/logout') Logout
+    if user && user.local.username==user_data.local.username
+      a.button.primary-btn.mt-20(href='/users/logout')
+        | Logout
+        span.lnr.lnr-arrow-right
 
   div.row
     div.col-sm-6

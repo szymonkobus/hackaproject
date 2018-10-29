@@ -1,32 +1,37 @@
 extends layout
 
 block elements
+  h2.mb-30 Discussion Topic
   if posts
-   each post, i in posts
-     .post
-       h2 #{post.title}
-       #{post.text}
+  each post, i in posts
+    .post.mb-30
+      .row
+        .col-lg-12
+          h3.mb-20 #{post.title}
+          blockquote.generic-blockquote
+            | #{post.text}
 
-       Posted by #{post.author} on #{post.date).format("MM-DD-YYYY")}
-       =post.text
-       p
+          Posted by #{post.author} on #{post.date).format("MM-DD-YYYY")}
+          =post.text
+          p
+          span.fa.fa-thumbs-up.mr-20
+          span.fa.fa-thumbs-down
 
-  h1 Post a reply
+
+  h1.mb-30 Post a reply
   if logged_in
-    form#myForm.form-area(action='/discussion', method='post')
+    form#myForm.form-area(action='/discussion/#{discussionid}', method='post')
       .col-lg-6.form-group.content-csers
         label Title
           input.common-input.mb-20.form-control(name='title', type='tile', required placeholder='Enter your post title', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your post title'")
         br
         label Post Content
         .mt-10
-          textarea.single-textarea(name='text', type='text', placeholder='Write your post here...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Write yoru post here...'")
+          textarea.single-textarea(name='text', type='text', placeholder='Write your post here...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Write your post here...'")
         button.primary-btn.mt-20(type='submit')
           | Post Reply
           span.lnr.lnr-arrow-right
         .alert-msg
-//    form(name="input", action="/topic/"+url, method="post")
-//    !{form}
-//    input(type="submit", value="Post Reply")
   else
     p You need to login to post a reply.
+  br

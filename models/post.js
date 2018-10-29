@@ -21,19 +21,21 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
   if(err) console.log('Error: Can\'t connect to database: ',err);
 })
 
+// ========
+// METHODS
+// ========
+
 /**
  * Retrieves posts from database using discussion ID
  *
  * @param {Number}   id
  * @param {Function} callback
  */
-// ========
-// METHODS
-// ========
-
 postSchema.methods.getPostsByDiscussionId = function(discussion_id, callback) {
   // Temporarily modified for testing purposes
-  if(discussion_id == null){ Post.find({}, callback); }
+  if (discussion_id == null) {
+    Post.find({}, callback);
+  }
   else{ Post.find({ 'discussion_id' : discussion_id }, callback); }
 };
 
@@ -47,7 +49,7 @@ postSchema.methods.addNewPost = function(title, content, author, discussion_id, 
   this.text = content;
 
   this.save((err) => {
-    if(err){
+    if (err){
       console.log("ERROR: Couldn't save the post.");
     }
     callback(null, null);

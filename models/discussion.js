@@ -1,31 +1,45 @@
-  /**
-   * Handles database interaction for discussions.
-   */
+/**
+ * Handles database interaction for discussions.
+ */
 
-  var mongoose   = require('mongoose');
+var mongoose   = require('mongoose');
 
-  var discussionSchema = mongoose.Schema({
-      name:      { type: String, unique : true},
-      technolgy: { type: String },
-      author:    { type: String },
-      date :     { type : Date, default : Date.now },
-      posts_id:  { type : [ Number ]}
-  });
+var discussionSchema = mongoose.Schema({
+  name:       { type: String, unique : true},
+  technology: { type: String },
+  author:     { type: String },
+  date :      { type : Date, default : Date.now },
+  posts_id:   { type : [ Number ]}
+});
 
-  var Discussion = mongoose.model('discussion', discussionSchema);
+var Discussion = mongoose.model('discussion', discussionSchema);
 
-  var dbSetings = require('../config/database');
+var dbSetings = require('../config/database');
 
-  mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
-    if(err) console.log('Error: Can\'t connect to database: ',err);
-  })
+mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
+  if(err)
+    console.log('Error: Can\'t connect to database: ', err);
+})
 
-  /*
-  postSchema.methods.getDiscussionByID = (id, callback) => {
-    // Temporarily modified for testing purposes
-    Discussion.find({}, callback);
-    //Discussion.find({ 'discussion_id' : id}, callback);
-  };
-  */
+// ========
+// METHODS
+// ========
 
-  module.exports = mongoose.model('Discussion', discussionSchema);
+/**
+ * Retrieves all discussions
+ *
+ * @param {Function} callback
+ */
+discussionSchema.methods.getAllDiscussions = function(callback) {
+  Discussion.find({}, callback);
+}
+
+/*
+postSchema.methods.getDiscussionByID = (id, callback) => {
+// Temporarily modified for testing purposes
+Discussion.find({}, callback);
+//Discussion.find({ 'discussion_id' : id}, callback);
+};
+*/
+
+module.exports = mongoose.model('Discussion', discussionSchema);

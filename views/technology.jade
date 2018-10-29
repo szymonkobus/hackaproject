@@ -3,14 +3,10 @@ extends layout
 block elements
   div.page-header.text-center
     h1
-      span.fa.fa-anchor
-      |  Welcome to #{tech_data.name}!
+      | #{tech_data.name}
 
   div.row
     div.col-sm-6
-      h3
-        span.fa.fa-user
-        |  Local
       p
         strong Name: #{tech_data.name}
       p

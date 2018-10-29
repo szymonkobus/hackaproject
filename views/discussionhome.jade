@@ -1,0 +1,34 @@
+extends layout
+
+block elements
+  if discussions
+  each discussion, i in discussions
+    .mb-30
+      .row
+        .col-lg-12
+          h3.mb-20 #{discussion.name}
+          blockquote.generic-blockquote
+            | #{discussion.technology}
+
+          Posted by #{discussion.author} on #{discussion.date).format("MM-DD-YYYY")}
+          =post.text
+          p
+
+
+  h1.mb-30 Create a new discussion
+  if logged_in
+    form#myForm.form-area(action='/discussion/', method='post')
+      .col-lg-6.form-group.content-csers
+        label Title
+          input.common-input.mb-20.form-control(name='title', type='tile', required placeholder='Enter your discussion title', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your discussion title'")
+        br
+        label Post Content
+        .mt-10
+          textarea.single-textarea(name='text', type='text', required placeholder='Write your post here...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Write your post here...'")
+        button.primary-btn.mt-20(type='submit')
+          | Post Reply
+          span.lnr.lnr-arrow-right
+        .alert-msg
+  else
+    p You need to login to create a discussion.
+  br

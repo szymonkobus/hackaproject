@@ -22,7 +22,11 @@ router.get(/.*/, function(req, res) {
         console.log('No matching technology profile with that username found.');
         res.redirect('/');
       } else {
-        res.render('technology', { title : 'Technology', description : 'Learn more about different technologies and use your knowledge to innovate.', logged_in : req.isAuthenticated(), tech_data : result });
+        res.render('technology', { title       : 'Technology',
+                                   description : 'Learn more about different technologies and use your knowledge to innovate.',
+                                   logged_in   : req.isAuthenticated(),
+                                   user        : req.user,
+                                   tech_data   : result });
       }
     }
   });

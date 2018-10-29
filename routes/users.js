@@ -24,7 +24,10 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.get('/login', function(req, res) {
-    res.render('login', {title : 'Login', description : 'Login to your account.', logged_in : req.isAuthenticated() });
+    res.render('login', {title       : 'Login',
+                         description : 'Login to your account.',
+                         logged_in   : req.isAuthenticated(),
+                         user        : req.user });
   });
 
   /**
@@ -40,7 +43,7 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Authentication successful!');
     req.flash('success', 'You are now logged in.');
-    res.redirect('/users/profile/' + req.user.local.username);
+    res.redirect('/users/profile/' + req.username);
     console.log(res.urlencoded);
   });
 
@@ -51,7 +54,10 @@ module.exports = function(app, passport) {
    * @param {Object} res
    */
   router.get('/register', function(req, res) {
-    res.render('register', { title : 'Register', description : "Register for an account with us! We're excited to have you here.", logged_in : req.isAuthenticated() });
+    res.render('register', { title       : 'Register',
+                             description : "Register for an account with us! We're excited to have you here.",
+                             logged_in   : req.isAuthenticated(),
+                             user        : req.user });
   });
 
   /**
@@ -67,7 +73,7 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Registration successful!');
     req.flash('success', 'You are now signed up.');
-    res.redirect('/users/profile/' + req.user.local.username);
+    res.redirect('/users/profile/' + req.username);
     console.log(res.urlencoded);
   });
 
@@ -91,7 +97,11 @@ module.exports = function(app, passport) {
           console.log('No matching user profile with that username found.');
           res.redirect('/');
         } else {
-          res.render('profile', {  title : user_queried + "'s profile", description : 'Feel free to look around.', logged_in : req.isAuthenticated(), user_data : result });
+          res.render('profile', {  title       : user_queried + "'s profile",
+                                   description : 'Feel free to look around.',
+                                   logged_in   : req.isAuthenticated(),
+                                   user        : req.user,
+                                   user_data   : result });
         }
       }
     });

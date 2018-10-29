@@ -6,12 +6,42 @@ block elements
       | #{tech_data.name}
 
   div.row
-    div.col-sm-6
-      p
-        strong Name: #{tech_data.name}
+    div.col-sm-12
       p
         strong Parents: #{tech_data.parents}
       p
+      strong Children:
+      p
         each child, i in tech_data.children
-          strong Children: #{child}
+          a(href="/technology/#{child}") #{child}
           br
+      p
+        strong Discussion:
+        each discussion, i in tech_data.discussions
+          p
+            a(href="/discussion/#{discussion}") Discussion
+        strong Articles:
+        each article, i in tech_data.articles
+          p
+            a(href="#{article}") Article
+      #content
+        p !{wiki_query}
+
+
+  h1.mb-30 Create a new discussion
+  if logged_in
+    form#myForm.form-area(action='/technology/#{tech_data.name}', method='post')
+      .col-lg-6.form-group.content-csers
+        label Title
+          input.common-input.mb-20.form-control(name='title', type='tile', required placeholder='Enter your post title', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Enter your discussion title'")
+        br
+        label Post Content
+        .mt-10
+          textarea.single-textarea(name='text', type='text', placeholder='Write your post here...', onfocus="this.placeholder = ''", onblur="this.placeholder = 'Write your post here...'")
+        button.primary-btn.mt-20(type='submit')
+          | Create Discussion
+          span.lnr.lnr-arrow-right
+        .alert-msg
+  else
+    p You need to login to create a discussion.
+  br

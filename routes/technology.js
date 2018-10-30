@@ -5,11 +5,7 @@ var express = require('express');
 var router  = express.Router();
 
 var Technology = require('../models/technology.js');
-var wikipedia  = require('wikipedia-js');
-
-router.get('/', function(req, res) {
-  res.send("hello world");
-});
+var wikipedia = require('wikipedia-js');
 
 /**
  * Handles GET request for technology home page.

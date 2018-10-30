@@ -85,8 +85,7 @@ module.exports = function(app, passport) {
    * @param {Object} req
    * @param {Object} res
    */
-  router.get(/\/profile\/.*/, function(req, res) {
-    var user_queried = req.url.replace('/profile/', "");
+
     var user = new User();
     user.getUserProfile(user_queried, function(err, result) {
       if (err) {

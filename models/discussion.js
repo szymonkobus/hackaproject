@@ -5,9 +5,9 @@
 var mongoose   = require('mongoose');
 
 var discussionSchema = mongoose.Schema({
-  name:       { type: String, unique : true},
-  technology: { type: String },
-  author:     { type: String },
+  name:       { type : String, unique : true},
+  technology: { type : String },
+  author:     { type : String },
   date :      { type : Date, default : Date.now },
   posts_id:   { type : [ Number ]}
 });

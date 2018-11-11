@@ -29,8 +29,12 @@ mongoose.connect(dbSetings.url ,{ useNewUrlParser: true}, (err, client) => {
  */
  technologySchema.methods.getTechByName = (name, callback) => {
    // Modified for testing purposes.
-   Technology.findOne({}, callback)
-   // Technology.findOne({'name' : name}, callback)
+   // Technology.findOne({}, callback)
+   Technology.find({'name' : new RegExp('^' + name + '$', 'i')}, callback)
+ };
+
+ technologySchema.methods.getTechnologies = (callback) => {
+   Technology.find({'parent' : ''}, callback)
  };
 
 

@@ -39,6 +39,15 @@ postSchema.methods.getPostsByDiscussionId = function(discussion_id, callback) {
   else{ Post.find({ 'discussion_id' : discussion_id }, callback); }
 };
 
+/**
+ * Creates post with fields specified and stores it into database.
+ *
+ * @param {String}   title
+ * @param {String}   content
+ * @param {String}   author
+ * @param {Number}   discussion_id
+ * @param {Function} callback
+ */
 postSchema.methods.addNewPost = function(title, content, author, discussion_id, callback) {
   // Pass callback as next function after post added. // S: dont get it
   this.discussion_id = discussion_id;

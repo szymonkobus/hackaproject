@@ -9,7 +9,10 @@ var wikipedia = require('wikipedia-js');
 var Post       = require('../models/post');
 
 /**
+ * Handles GET request for technology home page.
  *
+ * @param {Object} req
+ * @param {Object} res
  */
  router.get('/', function(req, res) {
    var technology = new Technology();
@@ -29,7 +32,7 @@ var Post       = require('../models/post');
  })
 
 /**
- * Handles GET request for technology home page.
+ * Handles GET request for specific technology page.
  *
  * @param {Object} req
  * @param {Object} res
@@ -66,9 +69,15 @@ router.get(/.*/, function(req, res) {
   });
 });
 
+/**
+ * Handles POST request for specific technology page, saving post to database.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
 router.post(/.*/, function(req, res) {
   var tech_queried = req.url.replace('/', '').replace(/%20/g, ' ');
-  var discussion_id = 11;
+  var discussion_id = 17;
   console.log("p discussion_id: " + discussion_id);
   var newPost = new Post();
   newPost.addNewPost(req.body.title, req.body.text, req.user.local.username, discussion_id, function(err, result) {

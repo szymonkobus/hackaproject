@@ -6,13 +6,50 @@ block elements
       a.button.primary-btn.mt-20(href='/users/logout')
         | Logout
         span.lnr.lnr-arrow-right
-
-  div.row
-    div.col-sm-6
-      h3
-        span.fa.fa-user
-        |  Local
-      p
-        strong Username: #{user_data.local.username}
-      p
-        strong Password: #{user_data.local.password}
+        
+// The below code is hard-coded for a demo of the MVP
+  .whole-wrap
+    .container
+      .section-top-border
+        .row
+          .col-md-3
+            img.img-fluid(src='/images/profile_photo.jpg', alt='')
+          .col-md-9.mt-sm-20
+            .title.text-center
+              h1.mb-10 About Me
+              br
+              p
+                font(size='5')
+                  | I am a second year Computing student at Imperial College, who is interested in discussing new projects and collaborating with other disciplines. Feel free to contact me to discuss new ideas!
+    br
+    .container
+      .row.d-flex.justify-content-center
+        .menu-content.pb-60.col-lg-8
+          .title.text-center
+            h2.mb-10 Areas of Expertise and Interests
+            p Technologies and sciences I am interested in. Ask me about them!
+      .row
+        .col-lg-4.col-md-6
+          .single-feature.mb-30
+            .title.d-flex.flex-row.pb-20
+              span.lnr.lnr-license
+              h4
+                a(href='/technology/quantum%20computing') Quantum Computing
+            p
+              | Interested in applications of Quantum Computing to cryptography.
+        .col-lg-4.col-md-6
+          .single-feature.mb-30
+            .title.d-flex.flex-row.pb-20
+              span.lnr.lnr-license
+              h4
+                a(href='/technology/nanotechnology') Nanotechnology
+            p
+              | Interested in the use of nanotechnology for modern day production techniques.
+        .col-lg-4.col-md-6
+          .single-feature.mb-30
+            .title.d-flex.flex-row.pb-20
+              span.lnr.lnr-license
+              h4
+                a(href='/technology/vertical%20farming') Vertical farming
+            p
+              | Want to learn more about the mechanism behind vertical farming practices.

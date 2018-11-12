@@ -29,6 +29,12 @@ router.get('/', function(req, res) {
   });
 });
 
+/**
+ * Handles GET request for discussion page, retrieving posts with the discussion id in the URL.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
 router.get(/.*/, function(req, res) {
   console.log("g url: " + req.url);
   var discussion_id = req.url.replace('/', '');
@@ -51,13 +57,18 @@ router.get(/.*/, function(req, res) {
   });
 });
 
+/**
+ * Handles POST request for discussion page, storing new post in database.
+ *
+ * @param {Object} req
+ * @param {Object} res
+ */
 router.post(/\/.*/, function(req, res) {
   console.log("p url: " + req.url);
   var discussion_id = req.url.replace('/', '');
   if(discussion_id == ''){
     discussion_id = 0;
   }
-  console.log("p discussion_id: " + discussion_id);
   var newPost = new Post();
   newPost.addNewPost(req.body.title, req.body.text, req.user.local.username, discussion_id, function(err, result) {
     if(err){

@@ -43,7 +43,7 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Authentication successful!');
     req.flash('success', 'You are now logged in.');
-    res.redirect('/users/profile/' + req.username);
+    res.redirect('/users/profile/' + req.user.local.username);
     console.log(res.urlencoded);
   });
 
@@ -73,7 +73,7 @@ module.exports = function(app, passport) {
   function(req, res) {
     console.log('Registration successful!');
     req.flash('success', 'You are now signed up.');
-    res.redirect('/users/profile/' + req.username);
+    res.redirect('/users/profile/' + req.user.local.username);
     console.log(res.urlencoded);
   });
 

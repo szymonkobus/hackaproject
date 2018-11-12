@@ -7,27 +7,20 @@ block elements
 
   div.row
     div.col-sm-12
-      p
-        strong Parents: #{tech_data.parents}
-      p
-      strong Children:
-      p
-        each child, i in tech_data.children
-          a(href="/technology/#{child}") #{child}
-          br
-      p
-        strong Discussion:
-        each discussion, i in tech_data.discussions
-          p
-            a(href="/discussion/#{discussion}") Discussion
-        strong Articles:
-        each article, i in tech_data.articles
-          p
-            a(href="#{article}") Article
+      if (tech_data.parents)
+        p
+          strong Parents: #{tech_data.parents}
+      if (tech_data.children)
+        p
+          strong Children:
+        ul
+          each child, i in tech_data.children
+            li.p(style='text-indent: 30px')
+              a(href="/technology/#{child}") &middot; #{child}
       #content
         p !{wiki_query}
 
-
+  br
   h1.mb-30 Create a new discussion
   if logged_in
     form#myForm.form-area(action='/technology/#{tech_data.name}', method='post')
